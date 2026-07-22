@@ -1,0 +1,33 @@
+/* photos.css — 現行サイトから引用した写真を差し込むためのスタイル
+   base.css / theme.css は変更しない方針のため、後読みでこのファイルだけを追加する。 */
+
+/* ---- ヒーローの写真 ---- */
+.hero-art.has-photo { padding: 0; overflow: hidden; background: #eef1f5; }
+.hero-art.has-photo::before { z-index: 2; pointer-events: none; }
+.hero-art.has-photo > img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.hero-art.has-photo .photo-note {
+  z-index: 3; left: 10px; right: 10px; bottom: 10px;
+  background: rgba(255, 255, 255, .88); border-radius: 999px;
+  padding: 5px 10px; font-size: .68rem; line-height: 1.5;
+}
+
+/* ---- 施工事例タイル（写真入り） ---- */
+figure.gallery-tile {
+  margin: 0; padding: 0; display: block; position: relative; overflow: hidden;
+  border-style: solid; border-color: rgba(0, 0, 0, .08); background: #eef1f5;
+}
+figure.gallery-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+figure.gallery-tile figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 12px;
+  font-size: .82rem; font-weight: 600; color: #fff; text-align: left;
+  background: linear-gradient(to top, rgba(17, 26, 38, .82), rgba(17, 26, 38, .45) 55%, rgba(17, 26, 38, 0));
+}
+@media (max-width: 480px) { figure.gallery-tile figcaption { font-size: .76rem; padding: 8px 10px; } }
+
+/* ---- ナビの折り返し防止（[[mistakes]]2026-07-13）----
+   ブランド幅＋ナビ自然幅は container(1080px) に収まるが余裕が小さく、
+   Webフォント読込前のフォールバック字形では折り返しうるため nowrap で固定する。 */
+.nav a { white-space: nowrap; }
